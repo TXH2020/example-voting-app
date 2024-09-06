@@ -22,6 +22,15 @@ spec:
           value: postgres
         - name: POSTGRES_PASSWORD
           value: postgres
+        resources:
+          limits:
+            memory: "2G"
+            cpu: 2
+            hugepages-2Mi: "200Mi"
+          requests:
+            memory: "2G"
+            cpu: 2
+            hugepages-2Mi: "200Mi"
         ports:
         - containerPort: 5432
           name: postgres
@@ -30,4 +39,4 @@ spec:
           name: db-data
       volumes:
       - name: db-data
-        emptyDir: {} 
+        emptyDir: {}
